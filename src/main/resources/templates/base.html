@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}"> base html</title>
+    <!-- Bootstrap.css -->
+    <link  rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    
+      <!-- Style.css -->
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css " rel="stylesheet"
+        type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css " rel="stylesheet"
+        type="text/css">
+	 </head>
+  <body>
+
+	<!-- Nav bar Start -->
+	
+	 <div class="o">
+        <div class="head" style="margin: 10px;">
+            <i class="edu">Edu<i style="color: black">Web</i></i>
+        </div>
+        <ul class="navbar">
+            <li><a style="color: red;" href="/">Home</a></li>
+
+
+            <li><a href="#">Blogs</a>
+            </li>
+            <li><a href="/login" style="--clr:#1e9dff">Login</a></li>
+            <li><a href="/register" class="primarybtn"> Register</a></li>
+            
+
+        </ul>
+        <div class="menu"><iconify-icon icon="ion:menu"></iconify-icon></div>
+    </div>
+	<!-- Nav bar End -->
+	
+	<div th:replace="${content}">
+		home
+	</div>
+	
+	
+	<footer>
+        <div class="sub">
+            <div class="icons">
+              <a href="#" class="hover-link"><iconify-icon icon="prime:google"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:instagram"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:github"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:facebook"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:twitter"></iconify-icon></a>
+           
+            </div>
+    </div></footer>
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script th:src="@{/js/script.js}"></script>
+	</body>
+</html>
