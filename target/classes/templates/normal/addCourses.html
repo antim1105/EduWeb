@@ -1,0 +1,84 @@
+		
+		<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title> this is about page </title>
+</head>
+
+
+<body>
+
+<section>
+
+
+		<div class="container">
+			<div class="row">
+					<div class="col-md-12  mt-5 col-8 offset-md-2 ">
+		<div th:if="${session.massage}" th:classappend="${'alert-'+session.massage.type}"  class="alert" role="alert">
+					<p th:text="${session.massage.content}">
+						
+					</p>
+				
+				</div>
+								
+					<div class="my-card m-4">
+<h1 class="text-center">Add Courses</h1>
+
+		<form action="#" th:object="${contact}"
+   enctype="multipart/form-data"
+     method="POST"
+	 th:action="@{/user/saveCourses}"
+     class="mt-2">
+	 <!-- first name  -->
+
+	 <div class="input-group">
+         <div class="input-group-prepend">
+			<div class="input-group-text mr-1">
+				<i class="fa-solid fa-plus"></i>
+				</div>
+		 </div>
+<input type="text" name="cname" id="cname" required="required" placeholder="Enter name here" class="form-control">
+	 </div>
+
+         <!-- Second   name -->
+
+		 <div class="input-group mt-3">
+			<div class="input-group-prepend">
+			   <div class="input-group-text mr-1">
+				   <i class="fa-solid fa-user"></i>
+				   </div>
+			</div>
+   <input type="date" name="date" id="lasrname" required="required"  placeholder="Enter Last name here" class="form-control">
+		</div>
+	
+	<div class="input-group mt-3">
+		<div class="input-group-prepend">
+		   <div class="input-group-text mr-1">
+			   <i class="fa-solid fa-briefcase"></i>
+			   </div>
+		</div>
+<input type="text" name="price" id="price"  required="required" placeholder="Enter price here" class="form-control">
+	</div>
+<!-- image  -->
+
+<div class="custom-file">
+<input type="file" name="proimage" id="image">
+</div>
+
+<div class="container text-center" >
+
+	<button class="btn btn-outline-primary" type="submit">Submit</button>
+</div>
+</form>
+
+	</div>
+  </div>
+
+   </div>
+	  </div>
+
+</section>
+
+</body>
+</html>

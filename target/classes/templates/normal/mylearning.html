@@ -1,0 +1,51 @@
+
+		<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title> this is about page </title>
+</head>
+
+<body>
+
+
+ <!-- Popular Courses Start   -->
+ <section id="course1 mt-5">
+    <h2 > Your   <span id="sub">Courses by  <span> Language</span> </span></h2>
+        <div class="course-box mt-5" >
+     
+            <div class="cors t-black"  th:each="c1: ${courses}">
+                    
+        
+                    <img th:src="@{'/img/'+${c1.img}}" >
+                    <div class="detalis">
+                        <span  th:text="${'Update Date   : '+c1.date}"></span>
+                        <h6 th:text="${'Course Name  :'+c1.cname}"></h6>
+                        <div class="str">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <span>(339)</span>
+                           
+<br>
+      <a href="#" class="  btn btn-primary"   th:href="@{'/user/'+${c1.id}+'/buyCourses'}">
+    Buy  </a>
+      
+                        </div>
+                    </div>
+                    <div class="cost">
+                        <span th:text="${'$'+c1.price}"></span>
+                    </div>
+            </div>
+</div>
+
+
+
+    </section>
+ <!-- Popular Courses End -->
+
+</body>
+
+
+</html>

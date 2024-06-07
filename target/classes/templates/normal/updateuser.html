@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title> this is singup page </title>
+</head>
+
+<body>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="my-card  mt-5 nav-task pb-3 px-4">
+						
+						<div th:if="${session.massage}" th:classappend="${session.massage.type}" class="alert alert-primary" role="alert">
+					<p th:text="${session.massage.content}">
+						
+					</p>
+						</div>
+						
+						<div class="text-center ">
+							<img src="" style="width: 80px;" th:src="@{/img/clipboard.png}">
+						</div>
+
+						<h1 class="text-center">Register Here !!</h1>
+						 <form action="" th:action="@{/user/process-update}"  method="POST"  enctype="multipart/form-data" >
+							<!--name field  -->
+							<div class=" form-group ">
+								<label for="name" class="form-label">Your Name</label>
+								<input type="text" name="name"  class="form-control "
+								th:if="${#fields.hasErrors('user.name')? 'is-invalid':''}"
+								 id="name" placeholder="Enter here" required=""
+								th:value="${user.name}"
+				>
+								
+								<div class="invalid-feedback">
+									
+								      </div>
+							</div>
+
+							<!--  name field End -->
+
+							<!-- email field-->
+							<div class=" form-group">
+								<label for="Email" class="form-label">Your Email</label>
+								<input type="email"  th:value="${user.Emaill}" name="Emaill" class="form-control" id="Email" placeholder="Enter here" required=""
+								
+														
+								>
+							</div>
+							<!-- email field End -->
+
+
+
+<!--  User Image  -->
+	
+	  <img id="image-1" style="width: 200px; height: 200px" alt="" src="" th:src="@{'/img/'+${user.image}}"/>
+     <!-- image  -->
+
+<div class="custom-file">
+<input type="file" name="proimage" id="image">
+</div>
+     
+<br>
+     
+							<div class="container text-center ">
+								<button type="submit" class="btn  bg-primary text-white">
+									Submit
+								</button>
+								<button type="reset" class="btn  btn-warning text-white">Reset</button>
+
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>	

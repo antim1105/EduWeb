@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<meta charset="UTF-8" />
+	<title> this is about page </title>
+</head>
+
+<body>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mt-2">
+				  <div class="my-card mt-5 text-center " >
+ <img  id="image-1"  style="width: 250px;height: 250px;" alt="" src="" th:src="@{'/img/'+${user.image}}">
+ 
+ <h1 class="text-center mt-3" th:text="${user.name}"></h1>
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#USERID</th>
+      <th scope="col">SMC<span th:text="${user.id}"></span></th>     
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+<th scope="row">Email</th>
+<td><span th:text="${user.emaill}"></span> </td>
+</tr>         
+      <tr>
+<th scope="row">Role</th>
+<td><span th:text="${user.role}"></span> </td>
+</tr>         <tr>
+<th scope="row">Account Active</th>
+<td><span th:text="${user.enabled}"></span> </td>
+</tr>    
+
+     <tr>
+<th scope="row">About</th>
+<td><span th:text="${user.about}"></span> </td>
+</tr>         
+     </tbody>
+     
+	</table>		
+	<a class="btn btn-primary btn-block" href="" th:href="@{/user/updateUser}">Update</a>
+	  <button class="btn btn-danger btn-block" >Delete</button>
+      
+  
+				  </div>
+			
+				</div>
+			</div>
+		</div>
+
+
+</section>
+</body>
+</html>

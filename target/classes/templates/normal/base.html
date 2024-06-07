@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}"> base html</title>
+    <!-- Bootstrap.css -->
+    <link  rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    
+      <!-- Style.css -->
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css " rel="stylesheet"
+        type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css " rel="stylesheet"
+        type="text/css">
+	 </head>
+  <body>
+
+	<!-- Nav bar Start -->
+	
+	 
+	 <div class="o fixed-top">
+        <div class="head" style="margin: 10px;">
+            <i class="edu">Edu<i style="color: black">Web</i></i>
+        </div>
+        <ul class="navbar">
+            <li><a style="color: red;" href="" th:href="@{/user/index}">Home</a></li>
+
+
+            <li><a href="#">Blogs</a>
+            <li><a href="#">about Us</a>
+
+            </li>
+            <li><a href="/login" style="--clr:#1e9dff">Courses</a></li>
+            <li><a th:href="@{/logout}" class="primarybtn"> Logout</a></li>
+            <li> <div onclick="toggleSidebar()" class="profile"><img class="pro" style=" width: 40px; height: 40px"src="" th:src="@{'/img/'+${user.image}}"></div> </li>
+
+        </ul>
+        <div class="menu"><iconify-icon icon="ion:menu"></iconify-icon></div>
+    </div>
+
+	<!-- Nav bar End -->
+	
+<!--  Sidebar start  -->
+<div class="sidebar mt-5">
+  <span onclick="toggleSidebar()"   class="crossBtn">&times;</span>
+   <a class="item" href="#" th:href="@{/user/index}"><i class="fa-solid fa-house"></i>Home</a>
+   <a class="item" href="#" th:href="@{/user/buy-courses}"> <i class="fas fa-id-card-alt"></i>Buy Courses</a>
+   <a class="item" href="#" th:href="@{/user/myLearning}"><i class="fas fa-pencil-alt"></i>My Learning/Courses</a>
+   <a class="item" href="#" th:href="@{/user/profile}"><i class="fa-solid fa-user"></i>Your Profile</a>
+   <a class="item" href="#" th:href="@{/user/addCourses}"><i class="fa-solid fa-user"></i>Add Courses</a>
+   <a class="item" href="#"> <i class="fa-solid fa-gear"></i>Settings</a>
+   <a class="item" href="#" th:href="@{/logout}"> <i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+<div class="divider"></div>
+</div>
+<!--  End sidebar  -->
+	
+	<div th:replace="${content}">
+		home
+	</div>
+	
+	
+	<footer>
+        <div class="sub">
+            <div class="icons">
+              <a href="#" class="hover-link"><iconify-icon icon="prime:google"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:instagram"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:github"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:facebook"></iconify-icon></a>
+              <a href="#" class="hover-link"><iconify-icon icon="prime:twitter"></iconify-icon></a>
+           
+            </div>
+    </div></footer>
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script th:src="@{/js/script.js}"></script>
+	</body>
+</html>
